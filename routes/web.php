@@ -1,7 +1,5 @@
 <?php
-
 use Livewire\Volt\Volt;
-
 
 Volt::route('/login', 'login')->name('login');
     
@@ -13,5 +11,6 @@ Route::get('/logout', function () {
 });
 // admin only routes
 Route::middleware('auth')->group(function () {
-  Volt::route('/', 'users.index');
+  Volt::route('/', 'dashboard');
+  Volt::route('/users', 'users.index');
 });
